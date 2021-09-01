@@ -38,7 +38,7 @@ implementation:
           import kfp.components as comp
 
           STORAGEACCOUNTKEY= key
-          service = BlobServiceClient.from_connection_string(conn_str=str_conn)
+          service = BlobServiceClient.from_connection_string(conn_str=STORAGEACCOUNTKEY)
           container_name=containerName
           blob_client = service.get_blob_client(container=container_name, blob=path)
           with open(outData, "wb") as download_file:
