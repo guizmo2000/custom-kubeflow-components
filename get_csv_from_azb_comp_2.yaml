@@ -39,6 +39,8 @@ implementation:
 
           service = BlobServiceClient.from_connection_string(conn_str=str_conn)
           container_name=containerName
+          print("File path : {}".format(path))
+          print("Container Name : {}".format(container_name))
           blob_client = service.get_blob_client(container=container_name, blob=path)
           blob = blob_client.download_blob().readall()
           with open(outData, "wb") as download_file:
